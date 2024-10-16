@@ -25,10 +25,10 @@
         Console.WriteLine(ArrayRecursion.isPalindromeRecursive("anna"));
     }
 
-    class ArrayRecursion {
+    struct ArrayRecursion {
         public static int[] valuesInBetween(int start, int end) {
             if (start == end) {
-                return new int[] { start };
+                return [start];
             } else {
                 int[] result = new int[end - start + 1];
                 var n = 0;
