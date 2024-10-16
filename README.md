@@ -1,3 +1,3 @@
 # OOP-with-CSharp
 
-this a test
+Exercises learning C# and OOP
