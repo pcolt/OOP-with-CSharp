@@ -12,29 +12,24 @@ class Program
         var inspector = new Inspector();
         
         Console.WriteLine("Tickets first ride before stamping:");
-        foreach (var ticket in ticketsFirstRide) {
-            Console.WriteLine(ticket.RidesLeft);
-        }
+        PrintRidesLeft(ticketsFirstRide);
 
         Console.WriteLine("Tickets first ride after stamping:");
         inspector.StampTickets(ticketsFirstRide);
-
-        foreach (var ticket in ticketsFirstRide) {
-            Console.WriteLine(ticket.RidesLeft);
-        }
+        PrintRidesLeft(ticketsFirstRide);
 
         Console.WriteLine("Tickets second ride before stamping:");
-        foreach (var ticket in ticketsSecondRide) {
-            Console.WriteLine(ticket.RidesLeft);
-        }
+        PrintRidesLeft(ticketsSecondRide);
 
         Console.WriteLine("Tickets second ride after stamping:");
         inspector.StampTickets(ticketsSecondRide);
+        PrintRidesLeft(ticketsSecondRide);
+    }
 
-        foreach (var ticket in ticketsSecondRide) {
-            Console.WriteLine(ticket.RidesLeft);
+    static void PrintRidesLeft(List<ITicket> tickets) {
+        for (int i = 0; i < tickets.Count; i++) {
+            Console.WriteLine($"Ticket {i} rides left: {tickets[i].RidesLeft}");
         }
-
     }
 }
 

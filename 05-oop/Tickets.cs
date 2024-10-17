@@ -12,7 +12,7 @@ class SingleTicket : ITicket
 
     public void Stamp() {
         if (RidesLeft == 0) {
-            Console.WriteLine("Ticket has no rides left");
+            Console.WriteLine("Oh no! Ticket has no rides left!");
             return;
         }
         RidesLeft -= 1;
@@ -25,7 +25,7 @@ class TicketBooklet : ITicket
 
     public void Stamp() {
         if (RidesLeft == 0) {
-            Console.WriteLine("Ticket has no rides left");
+            Console.WriteLine("Oh no! Ticket has no rides left!");
             return;
         }
         RidesLeft -= 1;
