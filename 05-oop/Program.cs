@@ -6,20 +6,35 @@ class Program
         var ticket1 = new SingleTicket();
         var ticket2 = new SingleTicket();
         var ticket3 = new SingleTicket();
-        var tickets = new List<ITicket> { ticket1, ticket2, ticket3 };
+        var ticket4 = new TicketBooklet();
+        var ticketsFirstRide = new List<ITicket> { ticket1, ticket2, ticket3, ticket4 };
+        var ticketsSecondRide = new List<ITicket> { ticket3, ticket4 };
         var inspector = new Inspector();
         
-        Console.WriteLine("Tickets before stamping:");
-        foreach (var ticket in tickets) {
-            Console.WriteLine(ticket.IsStamped);
+        Console.WriteLine("Tickets first ride before stamping:");
+        foreach (var ticket in ticketsFirstRide) {
+            Console.WriteLine(ticket.RidesLeft);
         }
 
-        inspector.StampTickets(tickets);
+        Console.WriteLine("Tickets first ride after stamping:");
+        inspector.StampTickets(ticketsFirstRide);
 
-        Console.WriteLine("Tickets after stamping:");
-        foreach (var ticket in tickets) {
-            Console.WriteLine(ticket.IsStamped);
+        foreach (var ticket in ticketsFirstRide) {
+            Console.WriteLine(ticket.RidesLeft);
         }
+
+        Console.WriteLine("Tickets second ride before stamping:");
+        foreach (var ticket in ticketsSecondRide) {
+            Console.WriteLine(ticket.RidesLeft);
+        }
+
+        Console.WriteLine("Tickets second ride after stamping:");
+        inspector.StampTickets(ticketsSecondRide);
+
+        foreach (var ticket in ticketsSecondRide) {
+            Console.WriteLine(ticket.RidesLeft);
+        }
+
     }
 }
 

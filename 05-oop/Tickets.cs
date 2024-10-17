@@ -2,22 +2,32 @@ namespace Tickets;
 
 interface ITicket
 {
-    bool IsStamped { get; }
+    int RidesLeft { get; }
     void Stamp();
 }
 
 class SingleTicket : ITicket
 {
-    public bool IsStamped { get; private set; } = false;
-
-    // public SingleTicket() {
-    //     IsStamped = false;
-    // }
+    public int RidesLeft { get; private set; } = 1;
 
     public void Stamp() {
-        IsStamped = true;
+        if (RidesLeft == 0) {
+            Console.WriteLine("Ticket has no rides left");
+            return;
+        }
+        RidesLeft -= 1;
     }
 }
 
+class TicketBooklet : ITicket
+{
+    public int RidesLeft { get; private set; } = 10;
 
-// class TicketBooklet : ITicket
+    public void Stamp() {
+        if (RidesLeft == 0) {
+            Console.WriteLine("Ticket has no rides left");
+            return;
+        }
+        RidesLeft -= 1;
+    }
+}
