@@ -41,4 +41,3 @@ class Inspector
         }
     }
 }
-// method that receives a list of ITicket and stamps them
