@@ -1,4 +1,6 @@
-﻿class Program 
+﻿using Tickets;
+
+class Program 
 {
     static void Main() {
         var ticket1 = new SingleTicket();
@@ -20,27 +22,6 @@
         }
     }
 }
-
-interface ITicket
-{
-    bool IsStamped { get; }
-    void Stamp();
-}
-
-class SingleTicket : ITicket
-{
-    public bool IsStamped { get; private set; } = false;
-
-    // public SingleTicket() {
-    //     IsStamped = false;
-    // }
-
-    public void Stamp() {
-        IsStamped = true;
-    }
-}
-
-// class TicketBooklet : ITicket
 
 class Inspector
 {
