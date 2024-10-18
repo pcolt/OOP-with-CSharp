@@ -17,9 +17,13 @@ class Inspector
     
     public void StampTicketsInBus(Bus bus) {
         foreach (var person in bus.Travellers) {
-            if (person.Ticket.IsValid == false) {
+            if (person.Ticket == null) {
+                Console.WriteLine($"{person.Name} has no ticket!");
                 Fines.Add(new Fine(100, person));
+                continue;
+            } else if (person.Ticket.IsValid == false) {
                 Console.WriteLine($"Oh no! {person.Name} has no rides left!");
+                Fines.Add(new Fine(80, person));
                 continue;
             }
             person.Ticket.Stamp();
@@ -46,10 +50,15 @@ class Fine
 class Person
 {
     public string Name { get; }
-    public ITicket Ticket { get; set; }
+    public ITicket? Ticket { get; set; }
 
     public Person(string name, ITicket ticketType) {
         this.Name = name;
         this.Ticket = ticketType; 
+    }
+
+    public Person (string name) {
+        this.Name = name;
+        this.Ticket = null;
     }
 }
