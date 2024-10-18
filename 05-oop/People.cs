@@ -2,8 +2,19 @@ using Tickets;
 using Veichles;
 
 namespace People;
-class Inspector
+
+abstract class Person
 {
+    public string Name { get; }
+    protected Person(string name) {
+        Name = name;
+    }
+}
+
+class Inspector: Person
+{
+    public Inspector(string name) : base(name) {}
+
     public List<Fine> Fines { get; private set; } = new List<Fine>();
     public void StampTickets(List<ITicket> tickets) {
         foreach (var ticket in tickets) {
@@ -32,7 +43,7 @@ class Inspector
 
     public void PrintFines() {
         foreach (var fine in Fines) {
-            Console.WriteLine($"Fine of {fine.Amount} to {fine.Person.Name}");
+            Console.WriteLine($"Fine of {fine.Amount} to {fine.Traveller.Name}");
         }
     }
 }
@@ -40,25 +51,22 @@ class Inspector
 class Fine
 {
     public int Amount { get; }
-    public Person Person { get; }
-    public Fine(int amount, Person person) {
+    public Traveller Traveller { get; }
+    public Fine(int amount, Traveller person) {
         this.Amount = amount;
-        this.Person = person;
+        this.Traveller = person;
     }
 }
 
-class Person
+class Traveller: Person
 {
-    public string Name { get; }
     public ITicket? Ticket { get; set; }
 
-    public Person(string name, ITicket ticketType) {
-        this.Name = name;
+    public Traveller(string name, ITicket ticketType) : base(name) {
         this.Ticket = ticketType; 
     }
 
-    public Person (string name) {
-        this.Name = name;
+    public Traveller (string name) : base(name) {
         this.Ticket = null;
     }
 }
