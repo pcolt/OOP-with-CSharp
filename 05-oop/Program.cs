@@ -4,19 +4,13 @@ using Veichles;
 
 class Program 
 {
-    static void Main() {
-        // var ticket1 = new SingleTicket();
+    static void Main() {        
         var person1 = new Traveller("John", new SingleTicket());
-        // var ticket2 = new SingleTicket();
         var person2 = new Traveller("Jane", new SingleTicket());
-        // var ticket3 = new SingleTicket();
         var person3 = new Traveller("Alice", new SingleTicket());
-        // var ticket4 = new TicketBooklet();
         var person4 = new Traveller("Bob", new TicketBooklet());
         var person5 = new Traveller("Charlie");
-        // var ticketsFirstRide = new List<ITicket> { ticket1, ticket2, ticket3, ticket4 };
         var firstBus = new Bus(1, new List<Traveller> { person1, person2, person3 });
-        // var ticketsSecondRide = new List<ITicket> { ticket3, ticket4 };
         var secondBus = new Bus(2, new List<Traveller> { person3, person4, person5 });
         var inspector = new Inspector("Luis");
         
@@ -38,12 +32,6 @@ class Program
 
         Console.WriteLine($"{Environment.NewLine}Inspector {inspector.Name} has registered the following fines:");
         inspector.PrintFines();
-    }
-
-    static void PrintRidesLeft(List<ITicket> tickets) {
-        for (int i = 0; i < tickets.Count; i++) {
-            Console.WriteLine($"Ticket {i} rides left: {tickets[i].RidesLeft}");
-        }
     }
 
     static void PrintStateTicketsInBus(Bus bus) {

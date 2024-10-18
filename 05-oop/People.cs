@@ -58,8 +58,8 @@ class Fine
     public int Amount { get; }
     public Traveller Traveller { get; }
     public Fine(int amount, Traveller person) {
-        this.Amount = amount;
-        this.Traveller = person;
+        Amount = amount;
+        Traveller = person;
     }
 }
 
@@ -68,19 +68,17 @@ class Traveller: Person
     public ITicket? Ticket { get; set; }
 
     public Traveller(string name, ITicket ticketType) : base(name) {
-        this.Ticket = ticketType; 
+        Ticket = ticketType; 
     }
 
-    public Traveller (string name) : base(name) {
-        this.Ticket = null;
-    }
+    public Traveller (string name) : base(name) {}
 
     public override void Salute() {
-        Console.WriteLine($"Hello! I am {this.Name},");
-        if (this.Ticket == null) {
+        Console.WriteLine($"Hello! I am {Name},");
+        if (Ticket == null) {
             Console.WriteLine("Shh! I have no ticket.");
             return;
         }
-        Console.WriteLine($"I have a ticket with {this.Ticket.RidesLeft} rides left.");
+        Console.WriteLine($"I have a ticket with {Ticket.RidesLeft} rides left.");
     }
 }

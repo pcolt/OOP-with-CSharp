@@ -7,7 +7,7 @@ class Bus
     public List<Traveller> Travellers { get; }
 
     public Bus(int number, List<Traveller> travellers) {
-        this.Number = number;
-        this.Travellers = travellers;
+        Number = number;
+        Travellers = travellers;
     }
 }
