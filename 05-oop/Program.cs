@@ -21,21 +21,17 @@ class Program
         var inspector = new Inspector("Luis");
         
         Console.WriteLine($"{Environment.NewLine}Tickets bus number {firstBus.Number} before inspector stamps:");
-        // PrintRidesLeft(ticketsFirstRide);
         PrintStateTicketsInBus(firstBus);
 
-        // inspector.StampTickets(ticketsFirstRide);
-        Console.WriteLine($"Tickets bus number {secondBus.Number} inspector starts stamping...");
+        inspector.Salute();
         inspector.StampTicketsInBus(firstBus);
-        // PrintRidesLeft(ticketsFirstRide);
         Console.WriteLine($"Tickets bus number {firstBus.Number} after inspector has stamped:");
         PrintStateTicketsInBus(firstBus);
 
         Console.WriteLine($"{Environment.NewLine}Tickets bus number {secondBus.Number} before inspector {inspector.Name} stamps:");
-        // PrintRidesLeft(ticketsSecondRide);
         PrintStateTicketsInBus(secondBus);
 
-        Console.WriteLine($"Tickets bus number {secondBus.Number} inspector {inspector.Name} starts stamping...");
+        inspector.Salute();
         inspector.StampTicketsInBus(secondBus);
         Console.WriteLine($"Tickets bus number {secondBus.Number} after inspector has stamped:");
         PrintStateTicketsInBus(secondBus);
@@ -51,12 +47,8 @@ class Program
     }
 
     static void PrintStateTicketsInBus(Bus bus) {
-        foreach (var person in bus.Travellers) {
-            if (person.Ticket == null) {
-                Console.WriteLine($"{person.Name} has no ticket");
-                continue;
-            }
-            Console.WriteLine($"{person.Name} has ticket with {person.Ticket.RidesLeft} rides left");
+        foreach (var traveller in bus.Travellers) {
+            traveller.Salute();
         }
     }
 }

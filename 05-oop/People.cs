@@ -9,6 +9,7 @@ abstract class Person
     protected Person(string name) {
         Name = name;
     }
+    abstract public void Salute();
 }
 
 class Inspector: Person
@@ -16,6 +17,10 @@ class Inspector: Person
     public Inspector(string name) : base(name) {}
 
     public List<Fine> Fines { get; private set; } = new List<Fine>();
+
+    public override void Salute() {
+        Console.WriteLine($"Good morning! I am the inspector {this.Name} and I will stamp your tickets now.");
+    }
     public void StampTickets(List<ITicket> tickets) {
         foreach (var ticket in tickets) {
             if (ticket.IsValid == false) {
@@ -43,7 +48,7 @@ class Inspector: Person
 
     public void PrintFines() {
         foreach (var fine in Fines) {
-            Console.WriteLine($"Fine of {fine.Amount} to {fine.Traveller.Name}");
+            Console.WriteLine($"Fine of {fine.Amount} euros to {fine.Traveller.Name}");
         }
     }
 }
@@ -68,5 +73,14 @@ class Traveller: Person
 
     public Traveller (string name) : base(name) {
         this.Ticket = null;
+    }
+
+    public override void Salute() {
+        Console.WriteLine($"Hello! I am {this.Name},");
+        if (this.Ticket == null) {
+            Console.WriteLine("Shh! I have no ticket.");
+            return;
+        }
+        Console.WriteLine($"I have a ticket with {this.Ticket.RidesLeft} rides left.");
     }
 }
