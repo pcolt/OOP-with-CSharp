@@ -1,5 +1,4 @@
 namespace Tickets;
-
 interface ITicket
 {
     int RidesLeft { get; }

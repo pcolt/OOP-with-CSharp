@@ -36,6 +36,9 @@ class Program
         Console.WriteLine($"Tickets bus number {secondBus.Number} after inspector stamps:");
         inspector.StampTicketsInBus(secondBus);
         PrintStateTicketsInBus(secondBus);
+
+        Console.WriteLine($"{Environment.NewLine}Fines:");
+        inspector.PrintFines();
     }
 
     static void PrintRidesLeft(List<ITicket> tickets) {
