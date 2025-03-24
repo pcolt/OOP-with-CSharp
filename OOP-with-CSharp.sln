@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-oop", "05-oop\05-oop.csproj", "{B013D9B1-19ED-493E-9BCC-6F5334FE70C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oop", "oop\oop.csproj", "{B013D9B1-19ED-493E-9BCC-6F5334FE70C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "array-recursion", "array-recursion\array-recursion.csproj", "{1260AB24-A2C6-4E89-8515-7FC826A27726}"
 EndProject
