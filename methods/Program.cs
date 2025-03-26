@@ -1,8 +1,25 @@
-﻿
+﻿using Project2;
+
+namespace Project1;
+
 class Program {
     static void Main() {
 
         Methods.printTripleNumberConsole();
+
+        var myClass1 = new Class1(10, 20, 30, 40, 50, 60, 70);
+        // myClass1.privateField = 10; // Error: privateField is not accessible outside of Class1
+        // myClass1.protectedField = 20; // Error: protectedField is not accessible outside of Class1 or derived classes
+        myClass1.internalField = 35;
+        myClass1.protectedInternalField = 45;
+        // myClass1.privateProtectedField = 50; // Error: privateProtectedField is not accessible
+        myClass1.publicField = 65;
+        myClass1.InternalProperty = 75;
+        myClass1.DisplayFieldsAndProperties();
+        var myClass2 = new Class2(110, 120, 130, 140, 150, 160, 170);
+        myClass2.AccessFields();
+        var myClass3 = new Class3(210, 220, 230, 240, 250, 260, 270);
+        myClass3.AccessFields();
     }
 
     class Methods {
@@ -39,6 +56,5 @@ class Program {
             }
             printTripleNumber();
         }
-
     }
 }
