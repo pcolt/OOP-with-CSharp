@@ -30,16 +30,12 @@ public class Class1 {
         int protectedField,
         int internalField,
         int protectedInternalField,
-        int privateProtectedField,
-        int publicField,
-        int InternalPropertyParam) {
+        int privateProtectedField) {
             privateField = privateFieldParam;
             this.protectedField = protectedField;  // this is required when the parameter name is the same as the field name
             this.internalField = internalField;
             this.protectedInternalField = protectedInternalField;
             this.privateProtectedField = privateProtectedField;
-            this.publicField = publicField;
-            InternalProperty = InternalPropertyParam;
     }
 
     public void DisplayFieldsAndProperties() {

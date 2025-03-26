@@ -9,16 +9,12 @@ public class Class3 : Project1.Class1 {
         int protectedField,
         int internalField,
         int protectedInternalField,
-        int privateProtectedField,
-        int publicField,
-        int InternalProperty) : base(
+        int privateProtectedField) : base(
             privateField,
             protectedField,
             internalField,
             protectedInternalField,
-            privateProtectedField,
-            publicField,
-            InternalProperty) {
+            privateProtectedField) {
         }
     public void AccessFields() {
         // Console.WriteLine(privateField); // Error: privateField is never accessible outside of the class

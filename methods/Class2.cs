@@ -6,16 +6,12 @@ public class Class2 : Class1 {
         int protectedField,
         int internalField,
         int protectedInternalField,
-        int privateProtectedField,
-        int publicField,
-        int InternalProperty) : base(
+        int privateProtectedField) : base(
             privateField,
             protectedField,
             internalField,
             protectedInternalField,
-            privateProtectedField,
-            publicField,
-            InternalProperty) {
+            privateProtectedField) {
         }
     public void AccessFields() {
         // Console.WriteLine(privateField); // Error: privateField is not accessible outside of Class1
