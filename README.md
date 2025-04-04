@@ -7,6 +7,8 @@ dotnet sln add <path-to-project>
 
 dotnet build
 
+dotnet run --project <path-to-project>
+
 ### create a new project
 dotnet new console -n <nome-del-progetto>
 

@@ -3,6 +3,7 @@ namespace Project1;
 public class Class1 {
 
     // private: The member is accessible only within the type (class, struct, etc.) that contains it.
+    //      Default accessability for memebers of classes and structs.
     private static int privateField;
 
     // protected: The member is accessible within the type that contains it and by derived types, 
@@ -21,6 +22,7 @@ public class Class1 {
     private protected int privateProtectedField;
 
     // public: The member is accessible from any other code.
+    //      Default accessability for memebers of interfaces and enums.
     public int publicField;
 
     internal int InternalProperty { get; set; }
