@@ -5,24 +5,49 @@ foreach (var employee in employees) {
     Console.WriteLine(employee.Name);
 }
 
-db.UpsertEmployee(new EmployeeEntity {
-    Id = 4,
-    Name = "Giorgio Neri",
+var task1 = Task.Run(async () => {
+    await Task.Delay(1000);
+    Console.WriteLine("Inside async task1:");
+    db.UpsertEmployee(new EmployeeEntity {
+        Id = 3,
+        Name = "Giorgio Neri",
+    });
+    Console.WriteLine("After modifiying an employee in tssk1:");
+    employees = db.GetEmployees();
+    foreach (var employee in employees) {
+        Console.WriteLine(employee.Name);
+    }
+
+    db.RemoveEmployee(new IdModel {
+        Id = 1,
+    });
+    Console.WriteLine("After removing an employee in task1:");
+    employees = db.GetEmployees();
+    foreach (var employee in employees) {
+        Console.WriteLine(employee.Name);
+    } 
 });
-Console.WriteLine("After modifiying an employee:");
+
+var task2 =  Task.Run(() => {
+    Console.WriteLine("Inside async task2:");
+    db.UpsertEmployee(new EmployeeEntity {
+        Id = 4,
+        Name = "Sara Bianchi",
+    });
+    Console.WriteLine("After modifiying an employee in task2:");
+    employees = db.GetEmployees();
+    foreach (var employee in employees) {
+        Console.WriteLine(employee.Name);
+    }
+});
+
+await Task.WhenAll(task1, task2);
+
+Console.WriteLine("After async tasks have finished:");
 employees = db.GetEmployees();
 foreach (var employee in employees) {
     Console.WriteLine(employee.Name);
 }
-
-db.RemoveEmployee(new IdModel {
-    Id = 4,
-});
-Console.WriteLine("After removing an employee:");
-employees = db.GetEmployees();
-foreach (var employee in employees) {
-    Console.WriteLine(employee.Name);
-}   
 
 public class Database {
     /*
@@ -48,14 +73,6 @@ public class Database {
                 Id = 3,
                 Name = "Anna Gialli",
             },
-            new EmployeeEntity {
-                Id = 4,
-                Name = "Filippo Bianchi",
-            },
-            new EmployeeEntity {
-                Id = 5,
-                Name = "Elisa Blu",
-            }
         };
     }
 
