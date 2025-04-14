@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "methods", "methods\methods.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solid-dependency-inversion-principle", "solid-dependency-inversion-principle\solid-dependency-inversion-principle.csproj", "{131A4637-638F-4ED2-8B63-BBEA2CFA86CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "singleton", "singleton\singleton.csproj", "{400BDDBE-8603-4E26-9549-934DAC2247FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{131A4637-638F-4ED2-8B63-BBEA2CFA86CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{131A4637-638F-4ED2-8B63-BBEA2CFA86CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{131A4637-638F-4ED2-8B63-BBEA2CFA86CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400BDDBE-8603-4E26-9549-934DAC2247FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400BDDBE-8603-4E26-9549-934DAC2247FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400BDDBE-8603-4E26-9549-934DAC2247FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400BDDBE-8603-4E26-9549-934DAC2247FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
